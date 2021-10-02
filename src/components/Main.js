@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import Button from '@mui/material/Button';
 
 class Main extends Component {
     render () {
-        return <h1>Hellou Word!</h1>;
+        return <Button variant="contained">Hello World!</Button>;
     }
 }
 export default Main;
