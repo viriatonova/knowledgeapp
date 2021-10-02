@@ -1,8 +1,14 @@
 import React from 'react';
-import Main from './components/Main';
+import Routes from './routes';
+import Header from './components/Header'
 import './index.js';
 
-function App() {
-  return <Main />;
+
+export default function App() {
+  return (
+    <>
+      <Header />
+      <Routes />
+    </>
+  );
 }
-export default App;
