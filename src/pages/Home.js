@@ -1,6 +1,5 @@
 import React from "react";
 import Container from '@mui/material/Container';
-import FormInicio from '../components/FormInicio'
 import { Box } from "@mui/system";
 
 export default function Home() {
@@ -15,7 +14,6 @@ export default function Home() {
                 justifyContent: 'center'
             }}>
                 <h2>Para começar, digite a quantidade de perguntas desejada.</h2>
-                <FormInicio />
             </Box>
         </Container>
     );
