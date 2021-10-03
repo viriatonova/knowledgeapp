@@ -1,6 +1,5 @@
 import React from "react";
 import Box from '@mui/material/Box';
-import { flexbox } from "@mui/system";
 
 
 export default function Header() {
@@ -14,7 +13,7 @@ export default function Header() {
             alignItems: 'center',
             justifyContent: 'center',
             backgroundColor:'black',
-            color:'White',
+            color: 'primary.main',
             fontSize: '1.75rem'
         }}>
             Knowledge App
