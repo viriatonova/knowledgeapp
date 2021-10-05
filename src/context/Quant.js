@@ -1,13 +1,14 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useContext} from "react";
 
 export const QuantContext = createContext(); 
-    const [quant, sentQuant] = useState(''); 
 
-export default functions QuantProvider( { children }) {
+export default function QuantProvider( { children } ) {
+    const {quant, setQuant} = useState(5); 
+
     return (
         <QuantContext.Provider value={{
             quant,
-            sentQuant,
+            setQuant,
         }}>
             { children }
         </QuantContext.Provider>
@@ -16,5 +17,7 @@ export default functions QuantProvider( { children }) {
 }
 
 export function useQuant() {
-    
+    const context = useContext(QuantContext);
+    const { quant, setQuant } = context;
+    return { quant, setQuant };
 }
