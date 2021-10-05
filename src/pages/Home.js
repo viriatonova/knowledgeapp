@@ -1,7 +1,7 @@
 import React from "react";
 import Container from '@mui/material/Container';
 import { Box } from "@mui/system";
-import FormInit from "../components/FormInit";
+import FormInit from "../components/homeForm";
 
 export default function Home() {
    

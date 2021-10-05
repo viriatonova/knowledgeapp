@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -9,28 +9,23 @@ import Button from '@mui/material/Button';
 
 
 export default function FormInit() {
-    const [questions, setQuestions] = React.useState('');
-  
-    const handleChange = (event) => {
-      setQuestions(event.target.value);
-    };
+    const [item, setItem] = useState('');
     
-    const handleSubmit = (event) => {
-      console.log([questions]);
+    const handleSubmit= (event) => {
+      setItem(event.target.value);  
     };
-    
-
+   
     return (
-        <Box component="form" sx={{ minWidth: 120 }} onSubmit={handleSubmit}>
-            <FormControl fullWidth >
+        <Box component="form" sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">Questions</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     name='selectForm'
-                    value={questions}
+                    value={item}
                     label="Questions"
-                    onChange={handleChange}
+                    onChange={handleSubmit}
                     
                 >
                     <MenuItem value={5}>5</MenuItem>
