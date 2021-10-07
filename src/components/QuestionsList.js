@@ -1,11 +1,11 @@
-import React, { useContext, useState, useEffect } from 'react'
-import { QuantContext } from '../context/QuantContext';
+import React, { useState, useEffect } from 'react'
+import { useQuant } from '../context/QuantContext';
 import axios from 'axios';
 import baseURL from '../services/Api';
 
 
 export default function QuestionsList() {
-    const { quant } = useContext(QuantContext);
+    const { quant } = useQuant();
     const [questions, setQuestions] = useState([]);
 
     useEffect(() => {
@@ -26,7 +26,7 @@ export default function QuestionsList() {
     return (
         <>
             { questions?.map((results) => (
-                <results 
+                <span
                     key={results.question}
                 />
             ))}
