@@ -1,45 +1,43 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import FormLabel from '@mui/material/FormLabel';
-import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
-import { useQuant } from "../context/QuantContext";
 import { Controller, useForm } from "react-hook-form";
 import { Button, Select } from "@mui/material";
+import axios from 'axios';
+import baseURL from '../services/Api';
 
 
-const HomeForm = () => {
+export default function HomeForm ()  {
   
-    const { quant, setQuant } = useQuant();
+    const [ quant, setQuant ] = useState();
+    const [questions, setQuestions] = useState([]);
     const { control, handleSubmit } = useForm();
+
+
     const onSubmit = (data) => {
       setQuant(data.Questions);
-      // window.location.href = `/tranfser-confirmation?from=${'/questions'}`;
+
     }
 
-    console.log(quant)
+    useEffect(() => {
+        axios.get(`${baseURL}${quant}`).then(({ data }) => {
+            setQuestions(data.results);
+        });
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [quant]);
 
+    console.log(quant)
+    console.log(questions)
+
+    localStorage.setItem("app", questions);
+    
+    if (questions.length !== 0) { window.location.href = 'questions'; }
+        
+   
     return (
       <form onSubmit={handleSubmit(onSubmit)}> 
         <FormControl fullWidth>
-            <FormLabel component="legend"
-            sx = {{
-              marginTop: 2,
-            }}
-            >First Name</FormLabel>
-            <Controller
-              render={({ field }) => <TextField {...field} 
-              sx = {{
-                marginTop: 2,
-              }} 
-              />}
-              id="outlined-basic"
-              label="Outlined"
-              variant="outlined"
-              name="firstName"
-              control={control}
-              defaultValue=""
-            />
             <FormLabel component="legend"
             sx = {{
               marginTop: 2,
@@ -75,4 +73,4 @@ const HomeForm = () => {
       
   );
 }
-export default HomeForm;
+
