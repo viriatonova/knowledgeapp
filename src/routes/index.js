@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Home from '../components/Home';
-import Start from '../components/Start';
-import Result from '../components/Result';
-import Questions from '../components/Questions';
-import Page404 from '../components/Page404';
+import Home from '../pages/Home';
+import Start from '../pages/Start';
+import Result from '../pages/Result';
+import Questions from '../pages/Questions';
+import Page404 from '../pages/Page404';
 
 
 export default function Rountes() {
