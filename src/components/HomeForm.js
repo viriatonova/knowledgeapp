@@ -31,7 +31,7 @@ export default function HomeForm ()  {
 
     localStorage.setItem("api", JSON.stringify(questions));
     
-    // if (questions.length !== 0) { window.location.href = 'questions'; }
+    if (questions.length !== 0) { window.location.href = 'questions'; }
         
    
     return (

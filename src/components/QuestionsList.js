@@ -1,18 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-export default function QuestionsList() {
-    const [ count, setCount ] = useState(0);
-    const questions = localStorage.getItem("api");
+export default function QuestionsList({category, question }) {
+
 
     return (
-        <>
-     
-            { questions?.map((item) => (
-                key={item.id}
-                id={item.id}
-                questions={item.question}
-            ))}  
-              
+        <>     
+            <h2>{category}</h2>
+            <p>{question}</p>
         </>
     );
 }
