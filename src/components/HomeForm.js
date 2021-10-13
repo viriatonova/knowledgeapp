@@ -17,7 +17,6 @@ export default function HomeForm ()  {
 
     const onSubmit = (data) => {
       setQuant(data.Questions);
-
     }
 
     useEffect(() => {
@@ -30,9 +29,9 @@ export default function HomeForm ()  {
     console.log(quant)
     console.log(questions)
 
-    localStorage.setItem("app", questions);
+    localStorage.setItem("api", JSON.stringify(questions));
     
-    if (questions.length !== 0) { window.location.href = 'questions'; }
+    // if (questions.length !== 0) { window.location.href = 'questions'; }
         
    
     return (

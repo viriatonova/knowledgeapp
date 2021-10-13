@@ -6,10 +6,12 @@ import QuestionsList from "../components/QuestionsList";
 
 export default function Questions() {
 
-   
+    
+
+
     return (
         <Container maxWidth="xl">
-            <QuestionsList />
+            <QuestionsList/>
         </Container>
     );
     
