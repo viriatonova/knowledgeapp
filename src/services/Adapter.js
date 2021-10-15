@@ -27,9 +27,10 @@ export function Adapter({count}) {
             <h2>{`Questions ${count+1}`}</h2>
             <h2>{categorys[count]}</h2> 
             <h3>{questions[count]}</h3> 
-            <p>{
-                answers[count]
-            }</p> 
+            <ul>{
+                answers[count].map((item, index) => 
+                <li key={index}>{item}</li>)
+            }</ul> 
 
         </Container>
     );
