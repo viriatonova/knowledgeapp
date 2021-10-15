@@ -26,9 +26,7 @@ export default function HomeForm ()  {
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [quant]);
 
-    console.log(quant)
-    console.log(questions)
-
+    
     localStorage.setItem("api", JSON.stringify(questions));
     
     if (questions.length !== 0) { window.location.href = 'questions'; }
