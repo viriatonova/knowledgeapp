@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Adapter } from "../services/Adapter";
 import { totalQuestions } from "../services/Adapter";
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 
 export default function Questions() {
@@ -9,8 +11,21 @@ export default function Questions() {
     return (
         <>
             <Adapter count = {count}/>
-            <button onClick={() => {if(count > 0 && count < totalQuestions ) {setCount(count - 1 )}}}>Preview Question</button>
-            <button onClick={() => {if(count >= 0 && count < totalQuestions - 1 ) {setCount(count + 1 )}}}>Next Question</button>
+            <Stack spacing={2} direction="row" sx={{
+                display:"flex",
+                justifyContent:"center",
+                marginTop:'3rem',
+            }}>
+                <Button variant="outlined" onClick={() => {if(count > 0 && count < totalQuestions ) {setCount(count - 1 )}}}>Preview</Button>
+                <Button variant="outlined" onClick={() => {if(count >= 0 && count < totalQuestions - 1 ) {setCount(count + 1 )}}}>Next</Button>
+            </Stack>
+            <Stack spacing={2} direction="row" sx={{
+                display:"flex",
+                justifyContent:"center",
+                marginTop:'3rem',
+            }}>
+                <Button variant="contained" sx={{}}>Submit</Button>
+            </Stack>
         </>
        
     );
