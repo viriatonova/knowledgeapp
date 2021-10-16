@@ -1,7 +1,10 @@
 import React from 'react';
+import './index.js';
 import Header from './components/Header'
 import Routes from './routes';
-import './index.js';
+import Adapter from "./services/Adapter";
+import QuantProvider from "./context/QuantContext"
+
 
 
 export default function App() {
@@ -10,9 +13,13 @@ export default function App() {
 
   return (
     <>
-      
-      <Header />
-      <Routes />
+      <QuantProvider>
+
+        <Header />
+        <Routes />
+        <Adapter />
+
+      </QuantProvider>
     
     </>
   );

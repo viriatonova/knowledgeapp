@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Adapter } from "../services/Adapter";
-import { totalQuestions } from "../services/Adapter";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import QuestionsList, {totalQuestions} from "../components/QuestionsList";
 
 
 export default function Questions() {
@@ -10,7 +9,7 @@ export default function Questions() {
 
     return (
         <>
-            <Adapter count = {count}/>
+            <QuestionsList count = {count}/>
             <Stack spacing={2} direction="row" sx={{
                 display:"flex",
                 justifyContent:"center",
