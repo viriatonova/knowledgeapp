@@ -1,17 +1,16 @@
-import React, {useState, useEffect} from "react";
+import React, { useContext } from "react";
+import { QuantContext } from "../context/QuantContext";
 import FormLabel from '@mui/material/FormLabel';
 import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import { Button, Select } from "@mui/material";
 import { Controller, useForm } from "react-hook-form";
-import axios from 'axios';
-import baseURL from '../services/Adapter';
+
 
 
 export default function HomeForm ()  {
   
-    const [ quant, setQuant ] = useState();
-    const [questions, setQuestions] = useState([]);
+    const { setQuant } = useContext(QuantContext);
     const { control, handleSubmit } = useForm();
 
 
@@ -19,19 +18,7 @@ export default function HomeForm ()  {
       setQuant(data.Questions);
     }
 
-    useEffect(() => {
-        axios.get(`${baseURL}${quant}`).then(({ data }) => {
-            setQuestions(data.results);
-        });
-        //eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [quant]);
 
-    
-    localStorage.setItem("api", JSON.stringify(questions));
-    
-    if (questions.length !== 0) { window.location.href = 'questions'; }
-        
-   
     return (
       <form onSubmit={handleSubmit(onSubmit)}> 
         <FormControl fullWidth>
