@@ -5,17 +5,22 @@ import { FormControlLabel, RadioGroup } from "@mui/material";
 import Radio from '@mui/material/Radio';
 import Box from '@mui/material/Box';
 
-const apiResult = JSON.parse(localStorage.getItem('api'));
-export const totalQuestions = apiResult.length;
-const categorys = []
-const questions = []
-const incorrect_answers = []
-const correct_answers = []
 
-apiResult.forEach(element => { categorys.push(element.category) });
-apiResult.forEach(element => { questions.push(element.question) });
-apiResult.forEach(element => { correct_answers.push(element.correct_answer)});
-apiResult.forEach(element => { incorrect_answers.push(element.incorrect_answers)});
+const categorys = [];
+const questions = [];
+const incorrect_answers = [];
+const correct_answers = [];
+
+
+let localData = JSON.parse(localStorage.getItem('apiData'));
+export const rangeQuestions = localData.length;
+    
+localData.forEach(element => { categorys.push(element.category) });
+localData.forEach(element => { questions.push(element.question) });
+localData.forEach(element => { correct_answers.push(element.correct_answer)});
+localData.forEach(element => { incorrect_answers.push(element.incorrect_answers)});
+
+
 
 
 export default function QuestionsList ({count}) {

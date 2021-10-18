@@ -18,7 +18,7 @@ export default function Adapter () {
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [{quant}]);
 
-    localStorage.setItem("api", JSON.stringify(questions));
+    localStorage.setItem("apiData", JSON.stringify(questions));
     
     // if (questions.length !== 0) { window.location.href = 'questions'; }
         

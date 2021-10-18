@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import QuestionsList, {totalQuestions} from "../components/QuestionsList";
-
+import QuestionsList from "../components/QuestionsList";
+import { rangeQuestions } from "../components/QuestionsList";
 
 export default function Questions() {
     const [count, setCount] = useState(0);
@@ -15,8 +15,8 @@ export default function Questions() {
                 justifyContent:"center",
                 marginTop:'3rem',
             }}>
-                <Button variant="outlined" onClick={() => {if(count > 0 && count < totalQuestions ) {setCount(count - 1 )}}}>Preview</Button>
-                <Button variant="outlined" onClick={() => {if(count >= 0 && count < totalQuestions - 1 ) {setCount(count + 1 )}}}>Next</Button>
+                <Button variant="outlined" onClick={() => {if(count > 0 && count < rangeQuestions ) {setCount(count - 1 )}}}>Preview</Button>
+                <Button variant="outlined" onClick={() => {if(count >= 0 && count < rangeQuestions - 1 ) {setCount(count + 1 )}}}>Next</Button>
             </Stack>
             <Stack spacing={2} direction="row" sx={{
                 display:"flex",
